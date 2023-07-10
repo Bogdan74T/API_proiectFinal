@@ -11,4 +11,3 @@ class TestStatus():
         result = get_status().json()['status']
 
         assert result == 'OK', f"The status value is not OK. Actual: {result}"
-
