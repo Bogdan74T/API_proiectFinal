@@ -1,6 +1,6 @@
 from requests_books.api_clients import *
 
-def testApiClient():
+class TestApiClient():
 
     nr = randint(1,9999999)
     clientName = 'Bogdan'
@@ -16,9 +16,9 @@ def testApiClient():
     def test_login_client_already_registered(self):
         self.response = login(self.clientName, self.clientEmail)
         assert self.response.status_code == 409
-        assert self.response.json()['error'] == 'API client already registered. Try a different email'
+        assert self.response.json()['error'] == 'API client already registered. Try a different email.'
 
     def test_invalid_email(self):
         self.response = login('def', 'abc')
         assert self.response.status_code == 400, 'Actual status code is not correct'
-        assert self.response.json()['error'] == "invalid or missing client email.", ""
+        assert self.response.json()['error'] == "Invalid or missing client email.", ""
