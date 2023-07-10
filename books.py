@@ -5,4 +5,3 @@ def get_books(limit='',book_type=''):
 
 def get_book(id):
     return requests.get(f"https://simple-books-api.glitch.me/books/{id}")
-
