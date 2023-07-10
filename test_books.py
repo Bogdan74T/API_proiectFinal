@@ -19,14 +19,15 @@ class TestBooks:
         response = get_books()
         assert len(response.json()) == 6, "Total number of books should be 6"
         for book in response.json():
-            assert 'book' in book.keys()
+            print(book.keys())
+            assert 'id' in book.keys()
             assert 'available' in book.keys()
             assert 'name' in book.keys()
             assert 'type' in book.keys()
 
     def test_get_all_books_limit(self):
         response = get_books(limit=4)
-        assert len(response.jason()) == 4, "Total number of books should be 3"
+        assert len(response.json()) == 4, "Total number of books should be 3"
         i=1
         for book in response.json():
             assert book['id'] == i
@@ -39,7 +40,7 @@ class TestBooks:
 
     def test_get_all_books_type_and_limit(self):
         response = get_books(book_type='fiction', limit=2)
-        assert len(response.jason()) == 2, "Number of books returned should be 2"
+        assert len(response.json()) == 2, "Number of books returned should be 2"
         for book in response.json():
             assert book['type'] == 'fiction', 'Book type should be fiction'
 
