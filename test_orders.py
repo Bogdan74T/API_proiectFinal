@@ -1,5 +1,5 @@
 from requests_books.api_clients import *
-from requests_books.orders import add_order, delete_order, get_orders, get_order, edit_order
+from requests_books.orders import *
 
 
 class TestOrders:
